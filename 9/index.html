@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<div id="buttons">
+		<input type="button" value="First" />
+		<input type="button" value="Second" />
+		<input type="button" value="Third" />
+		<input type="button" value="Fourth" />
+		<input type="button" value="Fifth" />
+	</div>
+
+	<script>
+		var buttons = document.getElementsByTagName("input");
+
+		document.onclick = function(e) {
+			console.log("click on document:");
+			console.dir(e);
+		};
+
+		for (var i = 0; i < buttons.length; i++) {
+			buttons[i].dataIndex = i;
+		}
+
+		document.getElementById("buttons").onclick = function(e) {
+			console.log("click on div:");
+			console.dir(e);
+			console.log(e.target.dataIndex);
+		};
+
+		window.onclick = function(e) {
+			console.log("click on window:");
+			console.dir(e);
+		};
+
+		// $(...).on("click", function ...)
+		// $(...).off("focus", function ...)
+
+		document.addEventListener("click", function(e) {
+			// ...
+		});
+
+		document.onclick = null;
+
+		document.removeEventListener("click", function() {});
+	</script>
+</body>
+</html>

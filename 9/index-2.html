@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<div id="content">
+		<span>This</span>
+		<span>is</span>
+	</div>
+	<script>
+		var divContent = document.getElementById("content");
+		// divContent.setAttribute("style", "float: right");
+
+		var newSpan = document.createElement("span");
+		newSpan.innerHTML = "<b>Sparta</b>";
+
+		divContent.appendChild(newSpan);
+		// newSpan.setAttribute("style", "float: right");
+
+		divContent.innerHTML += "<span>!!!!</span>";
+
+		var firstSpan = divContent.getElementsByTagName("span")[0];
+		firstSpan.setAttribute("style", "color: red");
+	</script>
+
+	<script>
+		var element = document.getElementsByName("text-input");
+	</script>
+</body>
+</html>
