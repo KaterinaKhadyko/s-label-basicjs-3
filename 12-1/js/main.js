@@ -3,6 +3,15 @@
 
 $(document).ready(function(){
 	$(function () {
+
+		$.ajax("templates/categories.html").done(function (templateSource) {
+			var template = Handlebars.compile(templateSource);
+
+			$.ajax("data/init.json").done(function(data) {
+				$(".category-products").html(template(data));
+			});
+		});
+
 		/*price range*/
 
 		$('#sl2').slider();
