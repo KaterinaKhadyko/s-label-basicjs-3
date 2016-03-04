@@ -16,6 +16,7 @@
 		var menuItems = JSON.parse(data);
 
 		var menuDiv = document.getElementById("menu");
+		var contentDiv = document.getElementById("content");
 		if (menuDiv) {
 			var ulElement = document.createElement("ul");
 
@@ -23,9 +24,12 @@
 				var liElement = document.createElement("li");
 				liElement.innerText = menuItems[i].menu;
 
-				liElement.onclick = function() {
-					// ...
-				};
+				liElement.onclick = (function(item) {
+					return function () {
+						contentDiv.innerText = item.content;
+						document.title = item.title;
+					};
+				})(menuItems[i]);
 
 				ulElement.appendChild(liElement);
 			}
