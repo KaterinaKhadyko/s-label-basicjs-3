@@ -8,17 +8,31 @@
 <body>
 	<header>
 		<div id="menu">
-			<!--
-			<ul>
-				<li>111</li>
-				<li>222</li>
-				<li>333</li>
-			</ul>
-			-->
 		</div>
 	</header>
+	<div id="content"></div>
 <script type="text/javascript">
+	AJAX("data.json", "get", function(data) {
+		var menuItems = JSON.parse(data);
 
+		var menuDiv = document.getElementById("menu");
+		if (menuDiv) {
+			var ulElement = document.createElement("ul");
+
+			for (var i = 0; i < menuItems.length; i++) {
+				var liElement = document.createElement("li");
+				liElement.innerText = menuItems[i].menu;
+
+				liElement.onclick = function() {
+					// ...
+				};
+
+				ulElement.appendChild(liElement);
+			}
+
+			menuDiv.appendChild(ulElement);
+		}
+	});
 </script>
 </body>
 </html>
