@@ -1,65 +1,85 @@
-/*scroll to top*/
-
-var productsTemplate = {
-	source: "templates/products.html",
-	$element: $(".features_items"),
-	data: {},
-	hanlebarsTpl: ""
+var params = {
+	category: 1,
+	brand: 1,
+	price: {
+		min: 250,
+		max: 500
+	}
 };
+
+var productFilters = [
+	function(data, params) {
+		return data.categories.indexOf(params.category) != -1;
+	},
+	function(data, params) {
+		return data.brand == params.brand;
+	}
+];
+
+function filterProducts(data, params) {
+	var result = [];
+
+	for (var index = 0; index < data.length; index++) {
+		var check = true;
+
+		for (var filterIndex = 0; filterIndex < productFilters.length; filterIndex++) {
+			check = check && productFilters[filterIndex].call(null, data[index], params);
+
+			if (!check) {
+				break;
+			}
+		}
+
+		if (check) {
+			result.push(data[index]);
+		}
+	}
+
+	return result;
+}
+
+/*
+ $(".category-products h4.panel-title a").on("click", function(e) {
+ e.preventDefault();
+ var categoryId = +$(this).closest("[data-id]").attr("data-id");
+ var productsData = {
+ products: []
+ };
+
+ $.each(data.products, function(id, product) {
+ if (product.categories.indexOf(categoryId) != -1) {
+ productsData.products.push(product);
+ }
+ });
+
+ productsTemplate.render(".features_items", productsData);
+ });
+ */
 
 $(document).ready(function(){
 	$(function () {
-		var productsTemplate = null;
+		//var productsTemplate = new Template("templates/products.html");
+		SideBar.render();
+		Products.render();
 
-		function renderProducts(data) {
-			if (productsTemplate) {
-				$(".features_items").html(productsTemplate(data));
-				return;
-			}
-
-			$.ajax("templates/products.html").done(function (templateSource) {
-						productsTemplate = Handlebars.compile(templateSource);
-						$(".features_items").html(productsTemplate(data));
-					});
-		}
-
+		/*
 		$.ajax("data/init.json").done(function(data) {
-			$.ajax("templates/categories.html").done(function (templateSource) {
-				var template = Handlebars.compile(templateSource);
-				$(".category-products").html(template(data));
-				$(".category-products h4.panel-title a").on("click", function(e) {
-					e.preventDefault();
-					var categoryId = +$(this).closest("[data-id]").attr("data-id");
-					var productsData = {
-						products: []
-					};
+			categoryTemplate.render(".category-products", data, function() {
 
-					$.each(data.products, function(id, product) {
-						if (product.categories.indexOf(categoryId) != -1) {
-							productsData.products.push(product);
-						}
-					});
-
-					renderProducts(productsData);
-				});
 			});
 
-			$.ajax("templates/price-range.html").done(function (templateSource) {
-				var template = Handlebars.compile(templateSource);
-
-				var priceData = {
-					min: 0,
-					max: 1000,
-					from: 600,
-					to: 800
-				};
-
-				$(".price-range").html(template(priceData));
+			var priceData = {
+				min: 0,
+				max: 1000,
+				from: 600,
+				to: 800
+			};
+			priceTemplate.render(".price-range", priceData, function() {
 				$('#sl2').slider();
 			});
 
-			renderProducts(data);
-		});
+			productsTemplate.render(".features_items", data);
+		});*/
 
 		var RGBChange = function() {
 			$('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
