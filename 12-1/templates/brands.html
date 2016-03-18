@@ -1,6 +1,5 @@
- 
-		<ul class="nav nav-pills nav-stacked"> 
-		{{#each brands}}
-			<li><a href="#brand_{{id}}" data-id="{{id}}"><span class="pull-right">{{count}}</span>{{text}}</a></li>
-		{{/each}}
-		</ul> 
+<ul class="nav nav-pills nav-stacked"> 
+{{#each this}}
+	<li><a href="#brand_{{id}}" data-id="{{id}}"><span class="pull-right">{{count}}</span>{{text}}</a></li>
+{{/each}}
+</ul>
