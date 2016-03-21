@@ -148,7 +148,7 @@
 		{
 		  "id": 100,
 		  "categories": [1, 3],
-		  "brand": 1,
+		  "brand": 5,
 		  "image": "images/home/product1.jpg",
 		  "title": "Product 1",
 		  "price": 500
@@ -156,7 +156,7 @@
 		{
 		  "id": 200,
 		  "categories": [1],
-		  "brand": 1,
+		  "brand": 6,
 		  "image": "images/home/product2.jpg",
 		  "title": "Product 2",
 		  "price": 300
@@ -164,26 +164,129 @@
 		{
 		  "id": 300,
 		  "categories": [3],
+		  "brand": 3,
 		  "image": "images/home/product3.jpg",
 		  "title": "Product 3"
 		},
 		{
 		  "id": 400,
 		  "categories": [2, 4],
+		  "brand": 2,
 		  "image": "images/home/product4.jpg",
 		  "title": "Product 4"
 		},
 		{
 		  "id": 500,
 		  "categories": [5],
+		  "brand": 4,
 		  "image": "images/home/product5.jpg",
 		  "title": "Product 5"
 		},
 		{
 		  "id": 600,
 		  "categories": [6],
+		  "brand": 1,
 		  "image": "images/home/product6.jpg",
 		  "title": "Product 6"
 		}
-	  ]
+	  ],
+	"shopProducts": [
+		{
+		  "id": 100,
+		  "categories": [1, 3],
+		  "brand": 5,
+		  "image": "images/shop/product12.jpg",
+		  "title": "Easy Polo Black Edition",
+		  "price": 56
+		},
+		{
+		  "id": 200,
+		  "categories": [1],
+		  "brand": 6,
+		  "image": "images/shop/product11.jpg",
+		  "title": "Easy Polo Black Edition",
+		  "price": 56
+		},
+		{
+		  "id": 300,
+		  "categories": [3],
+		  "brand": 3,
+		  "image": "images/shop/product10.jpg",
+		  "title": "Easy Polo Black Edition",
+		  "price": 56
+		},
+		{
+		  "id": 400,
+		  "categories": [2, 4],
+		  "brand": 2,
+		  "image": "images/shop/product9.jpg",
+		  "title": "Easy Polo Black Edition",
+		  "price": 56
+		},
+		{
+		  "id": 500,
+		  "categories": [5],
+		  "brand": 4,
+		  "image": "images/shop/product8.jpg",
+		  "title": "Easy Polo Black Edition",
+		  "price": 56
+		},
+		{
+		  "id": 600,
+		  "categories": [6],
+		  "brand": 1,
+		  "image": "images/shop/product7.jpg",
+		  "title": "Easy Polo Black Edition",
+		  "price": 56
+		},
+		{
+		  "id": 700,
+		  "categories": [1, 3],
+		  "brand": 5,
+		  "image": "images/home/product6.jpg",
+		  "title": "Easy Polo Black Edition",
+		  "price": 56
+		},
+		{
+		  "id": 800,
+		  "categories": [1],
+		  "brand": 6,
+		  "image": "images/home/product5.jpg",
+		  "title": "Easy Polo Black Edition",
+		  "price": 56
+		},
+		{
+		  "id": 900,
+		  "categories": [3],
+		  "brand": 3,
+		  "image": "images/home/product4.jpg",
+		  "title": "Easy Polo Black Edition",
+		  "price": 56
+		},
+		{
+		  "id": 1000,
+		  "categories": [2, 4],
+		  "brand": 2,
+		  "image": "images/home/product3.jpg",
+		  "title": "Easy Polo Black Edition",
+		  "price": 56
+		},
+		{
+		  "id": 1100,
+		  "categories": [5],
+		  "brand": 4,
+		  "image": "images/home/product2.jpg",
+		  "title": "Easy Polo Black Edition",
+		  "price": 56
+		},
+		{
+		  "id": 1200,
+		  "categories": [6],
+		  "brand": 1,
+		  "image": "images/home/product1.jpg",
+		  "title": "Easy Polo Black Edition",
+		  "price": 56
+		}
+		]
+	
 	}

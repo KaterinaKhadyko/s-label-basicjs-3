@@ -66,7 +66,9 @@ a#scrollUp i{
 /*************************
 *******Header CSS******
 **************************/
-
+#products-holder {
+	overflow: hidden;
+}
 .header_top {
   background: none repeat scroll 0 0 #F0F0E9;
 }

@@ -11,6 +11,7 @@ var Template = function(source) {
 	};
 
 	this.render = function(selector, data, callback) {
+
 		var $element = $(selector);
 		if (!$element.length) return;
 
@@ -22,5 +23,5 @@ var Template = function(source) {
 				htmlInsert($element, data, callback);
 			});
 		}
-	};
+	}
 };
