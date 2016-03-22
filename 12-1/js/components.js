@@ -146,8 +146,10 @@ var Page = function(contentTemplate, Products, SideBar) {
 	var data = null;
 	function renderHtml() {
 		contentTemplate.render("#content", null, function() {
-			SideBar.render();
-			Products.render();
+			if(SideBar) {
+				SideBar.render();
+				Products.render();
+			}
 		});
 	}
 	function init(callback) {
@@ -167,3 +169,41 @@ var Page = function(contentTemplate, Products, SideBar) {
 		}
 	};
 };
+
+var indexProducts = new Products('products');
+indexProducts.selector = ".features_items";
+
+var indexSideBar = new SideBar(indexProducts);
+var indexContentTemplate = new Template("templates/index.html");
+
+var indexContent = new Page (indexContentTemplate, indexProducts, indexSideBar);
+
+var shopProducts = new Products('shopProducts');
+shopProducts.selector = "#products-holder";
+
+var shopContentTemplate = new Template("templates/shop.html");
+var shopSideBar = new SideBar(shopProducts);
+
+var shopContent = new Page (shopContentTemplate, shopProducts, shopSideBar);
+
+var contactsTemplate = new Template("templates/contacts.html");
+var contactsPage = new Page(contactsTemplate);
+
+var notFoundTemplate = new Template("templates/404.html");
+var page404 = new Page(notFoundTemplate);
+
+var loginTemplate = new Template("templates/login.html");
+var loginPage = new Page(loginTemplate);
+
+var cartTemplate = new Template("templates/cart.html");
+var cartPage = new Page(cartTemplate);
+
+var checkoutTemplate = new Template("templates/checkout.html");
+var checkoutPage = new Page(checkoutTemplate);
+
+var blogTemplate = new Template("templates/blog.html");
+var blogPage = new Page(blogTemplate);
+
+var blogSingleTemplate = new Template("templates/blog-single.html");
+var blogSinglePage = new Page(blogSingleTemplate);
+

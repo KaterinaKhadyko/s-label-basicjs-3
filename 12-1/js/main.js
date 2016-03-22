@@ -5,7 +5,14 @@ $(document).ready(function(){
 		var mainMenuLinks = mainMenuElement.getElementsByTagName("li");
 		var pages = {
 			"#index": indexContent,
-			"#shop": shopContent
+			"#shop": shopContent,
+			"#contacts": contactsPage,
+			"#404": page404,
+			"#login": loginPage,
+			"#cart": cartPage,
+			"#checkout": checkoutPage,
+			"#blog": blogPage,
+			"#blog-single": blogSinglePage
 		};
 		for (var linkIndex = 0; linkIndex<mainMenuLinks.length; linkIndex++) {
 			mainMenuLinks[linkIndex].onclick = (function(index) {
