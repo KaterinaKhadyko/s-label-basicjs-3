@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app">
+    <head>
+        <title>Calculator</title>
+        <link rel="stylesheet" href="styles/all.css">
+        <script src="app/angular.min.js"></script>
+        <script src="app/app.js"></script>
+    </head>
+    <body>
+        <div ng-app="Calculator" class="field">
+          <div class="container calc" ng-controller="calculatorController as calcCtrl">
+            <h2>{{output}}</h2>
+            <button data-ng-click="input($event)" data-ng-repeat="button in buttons">{{button.value}}</button>
+                
+          </div>
+        </div>
+    </body>
+</html>
