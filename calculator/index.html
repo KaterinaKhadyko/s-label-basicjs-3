@@ -1,17 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" data-ng-app="app">
+<html ng-app="app">
     <head>
         <title>Calculator</title>
         <link rel="stylesheet" href="styles/all.css">
         <script src="app/angular.min.js"></script>
         <script src="app/app.js"></script>
+        <script src="app/mathCalc.js"></script>
+        <script src="app/baseCalc.js"></script>
     </head>
     <body>
-        <div ng-app="Calculator" class="field">
-          <div class="container calc" ng-controller="calculatorController as calcCtrl">
-            <h2>{{output}}</h2>
-            <button data-ng-click="input($event)" data-ng-repeat="button in buttons">{{button.value}}</button>
-                
+        <div class="field">
+          <div ng-controller="baseCalcController">
+            <h2>{{outputFactory.currentNumber}}<span>{{outputFactory.output}}</span></h2>
+            <div ng-controller="mathCalcController">
+                <div class="math" data-ng-show="outputFactory.show">
+                    <button data-ng-click="mathClick($event)" data-ng-repeat="button in extraButtons">{{button.value}}</button>
+                </div>                
+            </div>    
+            <div class="holder">
+                <div>
+                    <button class="math-button" data-ng-click="showMath()">{{outputFactory.pointer}}</button>
+                    <button data-ng-click="input($event)" data-ng-repeat="button in buttons">{{button.value}}</button>
+                </div>                
+            </div>   
           </div>
         </div>
     </body>

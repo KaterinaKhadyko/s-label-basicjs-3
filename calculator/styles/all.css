@@ -23,22 +23,51 @@
     -o-transition: all 0.2s;
     transition: all 0.2s;
 }
-.field button:first-of-type+button {
-    margin-right: 75px;
+.holder button:first-of-type {
+    margin-right: 0;
 }
-.field button:hover {
+.field button:hover, .holder button:first-of-type {
     background: lightblue;    
 }
 .field button:active {
     border: 1px inset #ccc;
 }
 .field h2 {
-    height: 40px;
+    height: 60px;
     background: #eee;
     padding: 5px;
-    margin: 30px 5px;
+    margin: 30px 5px 10px;
     text-align: right;
     border: 1px inset #ccc;
     overflow: hidden;
 }
-
+.field h2 span {
+    display: block;
+    font-size: 16px;
+    color: #888;
+}
+.math-button {
+    text-align: center;
+    cursor: pointer;
+    background: #ccc;
+    margin: 5px;
+    border: 1px outset #ccc;
+    background: lightblue;
+    border-radius: 5px;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+.math button {
+    background: lightblue;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+.math-button:hover, .math button:hover {
+    background: #eee;
+}
