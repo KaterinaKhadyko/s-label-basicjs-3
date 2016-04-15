@@ -10,11 +10,32 @@ app.factory('outputFactory', function () {
     };
 });
 
-app.factory('ButtonsFactory', ['$q', '$http', function($q, $http) {
+app.factory('BaseButtonsFactory', function($q, $http) {
 	var cacheButtons = [];
 
 	return {
-		extraButtons: function() {
+		buttons: function() {
+			var deferred = $q.defer();
+
+			if (cacheButtons.length) {
+				deferred.resolve(cacheButtons);
+			} else {
+				$http.get('./data.json').then(function(buttons) {
+					deferred.resolve(buttons.data.buttons);
+					cacheButtons = buttons.data.buttons;
+				});
+			}
+
+			return deferred.promise;
+		}
+	};
+});
+
+app.factory('ExtraButtonsFactory', function($q, $http) {
+	var cacheButtons = [];
+
+	return {
+		buttons: function() {
 			var deferred = $q.defer();
 
 			if (cacheButtons.length) {
@@ -29,4 +50,4 @@ app.factory('ButtonsFactory', ['$q', '$http', function($q, $http) {
 			return deferred.promise;
 		}
 	};
-}]);
+});
