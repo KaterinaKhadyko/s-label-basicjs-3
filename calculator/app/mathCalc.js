@@ -1,5 +1,13 @@
-app.controller('mathCalcController', function($scope, outputFactory) {
-    $scope.outputFactory = outputFactory;    
+app.controller('mathCalcController', function($scope, outputFactory, ExtraButtonsFactory) {
+    $scope.outputFactory = outputFactory;
+    
+    $scope.ExtraButtonsFactory = ExtraButtonsFactory;
+    ExtraButtonsFactory.ExtraButtonsFactory = ExtraButtonsFactory;
+    
+    ExtraButtonsFactory.buttons().then(function(data) {
+		$scope.extraButtons = data;
+        
+	});
     
     $scope.mathFunctions = {
         'sin x': function (value) {
@@ -23,19 +31,4 @@ app.controller('mathCalcController', function($scope, outputFactory) {
         outputFactory.output = outputFactory.currentNumber;
         
     }
-    
-    $scope.extraButtons = [
-        {
-            value: 'sin x'
-        },
-        {
-            value: 'cos x'
-        },
-        {
-            value: 'tg x'
-        },
-        {
-            value: 'log x'
-        }
-    ];
 });
